@@ -17,3 +17,4 @@ except Exception as ex:
 
 print(connection)
 print("Mysql executed successfully")
+print("Git Success")
