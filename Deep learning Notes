@@ -1,0 +1,109 @@
+Deep learning is for Un-structure Data saying so it can also used
+for Structured data as well
+
+Structure which is very Complex in nature (more dimension, more data)
+
+Deep Learning:
+
+1. Structured
+2. Un-Structured
+3. NLP(Natural Language Process)
+
+Deep learning is the process of learning thing in deeper way
+
+Neurons (it will split the given image into deeper tiles(parts),
+then it reads the image closely
+
+After reading each image closely, it will extract only important
+features
+
+Deep Learning:
+
+1. Perception
+2. ANN - Artificial neural networks
+3. DNN - Deep Neural Network
+4. CNN - Convolution Neural Network
+5. RNN - Re-current Neural Network
+
+Deep learning frameworks:
+
+1. TensorFlow (Google)
+2. PyTorch(meta)
+
+Deep learning :
+
+It is a subset of Machine learning, which in itself is a subset
+of Artificial Intelligence, each representing a narrowing
+specialization within the field.
+
+Artificial Intelligence <-- Machine Learning <-- Deep learning
+
+Artificial Intelligence:
+ Is a field of study focused on creating machine capable
+ of performing
+
+ Deep learning Evaluation:
+
+ 1. Perceptron -->
+                    2. Multi-layer perceptron -->
+                                                  3. Back Propagation -->
+                                                                         4. Convolutional neural Network
+
+
+ 1. Image recognition: Train the machine to accurate identification and classify the objects within images
+ 2. Natural Language Understanding(NLU): Teaches computer to comprehend and process human language
+ 3. Speech Recognition : Enables computer to transcribe and understand spoken works
+
+
+Deep Learning:                                         Machine Learning
+1. Subset of Machine learning                          1 . A broad field of training algorthiums to make
+   on training deep neural networks                    2. utilizes techniques like decision tree,super vector machine
+2. Excels in tasks like Image recognition,                 random forests
+   neural language, speech synthesis                   3. can be effective in a wide range of application
+3. Required substantial complication                   4. utilizes the limited neural networks
+   resource large data
+4. neural network with multiple layers and
+   requires multilayer and requires substantial
+   computational resources
+
+ Key to Deep Learning :
+
+ In 2007 NVIDIA Launched CUDA frameworks
+ It can be run Gpu not cpu running
+1 .It enabled practitioners to easily use GPUs and acceleration
+    the training of deep learning models
+2. Personal GPUS for Deep learning are widely available, and
+   renting GPUs from cloud providers like AWS or Azure is Common
+
+
+Keras is an open-sources Python frameworks for building and training deep neural networks
+with a user friendly and modular interfaces
+
+
+1. It acts as an Interface for the TensorFlow Library
+2. It is qualification as an easy-to-use, simplistic interface
+3. It provides a python
+
+Deep Learning LifeCycle:
+
+   -->Model monitoring
+           and
+        Maintenance <--
+           ^
+           ^
+   -->Deployment <--
+           ^
+           ^
+   -->Testing Phase <--
+           ^
+           ^
+   -->Training phase <--
+           ^
+           ^
+   -->Data Collection <--
+           ^
+           ^
+   --> 1.Planning Phase <--
+
+Training Phase:
+Once the collection of data
