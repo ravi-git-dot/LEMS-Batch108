@@ -1,0 +1,26 @@
+AI VS ML VS DL vs DS
+
+Artificial Intelligence
+   -AI is the one process where we can be create application automatically it make to decesion
+   quick response without human Interference
+   Eg . amazon and Flicker Tesla car
+
+Machine Learning
+   - Machine Learning is a subset of AI and what is the role of machine learning it provide stats tools
+     to analysis data, Visualization , prediction
+
+Deep leaning
+   - A subset of machine learning it main aim to mimic human brain create multi-learning neural-network
+   to prediction of large project
+
+Machine learning                          vs                       Deep learning
+       |
+       |
+|------------------------|
+|                        |
+Supervised           Unsupervised
+Learning                Learning
+    |                    |
+Regression           clustering
+    |                    |
+Classification      Dimensionality Reduction
