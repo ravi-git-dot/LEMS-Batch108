@@ -23,3 +23,6 @@ print([i*i for i in lst])
 print([i*i for i in lst if i % 2 == 0])
 
 print(["even" if i % 2 == 0 else "odd" for i in lst])
+
+import lightgbm as lgb
+print("LightGBM imported successfully.")
