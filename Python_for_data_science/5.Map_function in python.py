@@ -11,5 +11,4 @@ print(even_or_odd(34))
 lst = [1,2,3,4,5,6,7,82,34,56,78,34,21,59]
 
 # Use map with the defined function
-print(list(map(even_or_odd, lst))
-)
+print(list(map(even_or_odd, lst)))
