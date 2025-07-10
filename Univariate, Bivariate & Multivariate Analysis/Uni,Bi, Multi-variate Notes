@@ -1,0 +1,18 @@
+Univariate, Bivariate & Multivariate Analysis
+
+1. Univariate Analysis
+              Definition Analyzing one variable at a time. Purpose: To understand the distribution,
+              central tendency, and spread of data
+              •Examples: Histogram of age Boxplot of salary Value counts of gender
+              •Techniques: Mean, Median, Mode Standard
+               Deviation, Variance, Histogram, Pie Chart, Boxplot
+2. Bivariate Analysis
+              Definition Analyzing relationship two variables.
+              Purpose: To identiffy correlation or association between two features
+    Examples: Scatter plot of height vs weight Bar chart of gender vs. purchased
+    Correlation between marks v study hours
+  ✓ Used for: Detecting outliers, understand basic structure of a single variable
+3. Multivariate Analysis
+              Definition: Analysis involving more than variables.
+              Purpose: To understand the interaction between multiple variables at once
+     Examples: Analyzing ag, income, and spending score teg
