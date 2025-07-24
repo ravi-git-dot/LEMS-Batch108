@@ -1,0 +1,25 @@
+1. Confusion Matrix
+
+|                 | Predicted Positive  | Predicted Negative  |
+| --------------- | ------------------- | ------------------- |
+| Actual Positive | True Positive (TP)  | False Negative (FN) |
+| Actual Negative | False Positive (FP) | True Negative (TN)  |
+
+2. Formulas
+
+Accuracy  = (TP + TN) / (TP + TN + FP + FN)
+Precision = TP / (TP + FP)
+Recall    = TP / (TP + FN)
+F1 Score  = 2 * (Precision * Recall) / (Precision + Recall)
+
+Common Classification Metrics
+| Metric                       | Meaning                                             | When to Use                                                   |
+| ---------------------------- | --------------------------------------------------- | ------------------------------------------------------------- |
+| **Accuracy**                 | % of total predictions that are correct             | Good for balanced datasets                                    |
+| **Precision**                | How many predicted positives are actually positive? | When **false positives** are costly (e.g., spam detection)    |
+| **Recall (Sensitivity)**     | How many actual positives were correctly predicted? | When **false negatives** are costly (e.g., disease detection) |
+| **F1 Score**                 | Harmonic mean of precision and recall               | Good balance when classes are imbalanced                      |
+| **Confusion Matrix**         | Table showing TP, TN, FP, FN                        | For full breakdown of prediction results                      |
+| **ROC Curve & AUC**          | Visualize model's performance at all thresholds     | AUC closer to 1 is better                                     |
+| **Log Loss / Cross-Entropy** | Penalizes wrong predictions with high confidence    | For probabilistic classifiers                                 |
+
