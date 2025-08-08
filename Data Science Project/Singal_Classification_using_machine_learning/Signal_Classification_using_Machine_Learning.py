@@ -4,6 +4,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -130,9 +136,6 @@ Measures the time between the start of the Q wave and the end of the T wave.
 Indicates the total time for ventricular electrical activity, including both depolarization and repolarization.
 '''
 
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 # Example for a few main features as barplot:
 main_features = ['hbpermin', 'Pseg', 'QRSseg', 'QTseg']
 
@@ -150,27 +153,8 @@ sns.heatmap(df.isnull(), yticklabels = False, cbar= False, cmap = "viridis")
 plt.title("Heatmap of Feature Missing")
 plt.show()
 
-#We will compare the difference between all Hbpermin with ecg_signal
-main_features = ['hbpermin','Pseg', 'QRSseg', 'QTseg']  # Example features
-
-for feature in main_features:
-    plt.figure(figsize=(6, 4))
-    plt.scatter(df[feature], df['ECG_signal'])
-    plt.xlabel(feature)
-    plt.ylabel('ECG_signal')
-    plt.title(f'{feature} vs ECG_signal')
-    plt.show()
 
 #distribution of main feature test data
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-sns.histplot(data=df, x='Pseg', kde=True, color='red')
-plt.title('Distribution of Pseg')
-plt.xlabel('Pseg')
-plt.ylabel('Frequency')
-plt.show()
-
 
 sns.histplot(data=df, x='hbpermin', kde=True, color='red') #'hbpermin', 'Pseg', 'QRSseg', 'QTseg'
 plt.title('Distribution of HeartBeat per Minute')
@@ -178,8 +162,6 @@ plt.xlabel('HeartBeat per Minute')
 plt.ylabel('Frequency')
 plt.show()
 
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 features = ['hbpermin', 'Pseg', 'QRSseg', 'QTseg']
 
@@ -204,7 +186,6 @@ imputer_object = SimpleImputer(strategy = "median")
 df["QRtoQSdur"] = imputer_object.fit_transform(df[["QRtoQSdur"]])
 df["QRtoQSdur"].head(30)
 
-from sklearn.impute import SimpleImputer
 
 feature = ['RStoQSdur','PonPQang','PQRang','QRSang','STToffang','RSTang','QRslope','RSslope']
 imputer_object = SimpleImputer(strategy = "mean")
@@ -233,8 +214,6 @@ plt.show()
 
 print(df['ECG_signal'].unique())
 
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 sns.countplot(x="ECG_signal", data=df, palette="pastel")
 plt.title("Count of Each ARR Category")
@@ -256,7 +235,6 @@ We'll need to convert categorical features to dummy variables using pandas! Othe
 
 print(df.info())
 
-from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 label_object = LabelEncoder()
 df["ECG_signal"] = label_object.fit_transform(df["ECG_signal"])
@@ -278,13 +256,10 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(x)
 
 # splitting the data into train and test for training the model
-from sklearn.model_selection import train_test_split, cross_val_score
 
 x_train, x_test, y_train, y_test = train_test_split(x,y, test_size =0.3 , random_state = 42)
 
 # Model Calling
-from sklearn.linear_model import LogisticRegression
-
 model = LogisticRegression()
 
 model.fit(x_train, y_train)
@@ -294,15 +269,12 @@ prediction  = model.predict(x_test)
 print(prediction)
 
 # accuarcy
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
 accuarcy = confusion_matrix(y_test, prediction)
 print(accuarcy)
 
 score = accuracy_score(y_test, prediction)
 print(score)
 
-from sklearn.metrics import classification_report
 
 print(classification_report(y_test,prediction))
 
