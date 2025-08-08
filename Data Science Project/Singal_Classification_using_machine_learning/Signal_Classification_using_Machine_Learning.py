@@ -4,6 +4,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
 
 # Step2 : Load the data set
 df = pd.read_csv("ECGCvdata.csv")
@@ -253,7 +256,7 @@ We'll need to convert categorical features to dummy variables using pandas! Othe
 
 print(df.info())
 
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 label_object = LabelEncoder()
 df["ECG_signal"] = label_object.fit_transform(df["ECG_signal"])
@@ -268,12 +271,14 @@ Let's start by splitting our data into a training set and test set (there is ano
 around with in case you want to use all this data for training).
 '''
 
-# set feature and target
-x =df.drop('ECG_signal',axis= True)
-y =df['ECG_signal']
+# Step 12: Feature scaling
+x = df.drop('ECG_signal', axis=1)
+y = df['ECG_signal']
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(x)
 
 # splitting the data into train and test for training the model
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 
 x_train, x_test, y_train, y_test = train_test_split(x,y, test_size =0.3 , random_state = 42)
 
@@ -313,18 +318,36 @@ print("\nAccuracy Score:", accuracy_score(y_test, y_pred))
 
 print("Class Labels:", label_object.classes_)
 
-import seaborn as sns
-import matplotlib.pyplot as plt
+models = {
+    "Logistic Regression": LogisticRegression(max_iter=1000),
+    "Random Forest": RandomForestClassifier(random_state=42),
+    "SVM": SVC(),
+    "KNN": KNeighborsClassifier()
+}
 
+for name, model in models.items():
+    model.fit(x_train, y_train)
+    y_pred = model.predict(x_test)
+    acc = accuracy_score(y_test, y_pred)
+    print(f"\n{name} Accuracy: {acc:.4f}")
+    print("Classification Report:")
+    print(classification_report(y_test, y_pred, target_names=label_object.classes_))
+
+# Step 15: Confusion matrix for the best model (example: Logistic Regression)
+best_model = LogisticRegression(max_iter=1000)
+best_model.fit(x_train, y_train)
+y_pred = best_model.predict(x_test)
 cm = confusion_matrix(y_test, y_pred)
-sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=label_object.classes_, yticklabels=label_object.classes_)
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues",
+            xticklabels=label_object.classes_, yticklabels=label_object.classes_)
 plt.xlabel("Predicted")
 plt.ylabel("Actual")
-plt.title("Confusion Matrix")
+plt.title("Confusion Matrix: Logistic Regression")
 plt.show()
 
-from sklearn.model_selection import cross_val_score
-scores = cross_val_score(model, x, y, cv=5)
-print("Cross-validation accuracy:", scores.mean())
+# Step 16: Cross-validation for the best model
+scores = cross_val_score(best_model, X_scaled, y, cv=5)
+print("\nCross-Validation Scores:", scores)
+print("Average CV Accuracy:", scores.mean())
 
 
